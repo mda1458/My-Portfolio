@@ -52,15 +52,18 @@ const Navbar = () => {
         <GiHamburgerMenu onClick={() => setToggle(true)} />
         {toggle && (
           <motion.div
-            whileInView={{ x: [300, 0] }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            // create ease inout transition
+            initial={{ x: 100 }}
+            animate={{ x: 0 }}
+            transition={{ type: "spring", stiffness: 100, delay: 0.1 }}
           >
             <GrFormClose onClick={() => setToggle(false)} />
             <ul>
               {navlinks.map((item) => (
                 <li key={item}>
                   <a href={`#${item.name}`} onClick={() => setToggle(false)}>
-                    {item.icon} {item.name}
+                    {item.icon}
+                    {item.name}
                   </a>
                 </li>
               ))}
