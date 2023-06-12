@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 import "./Navbar.scss"
 import { images } from "../../constants"
+
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrFormClose } from "react-icons/gr";
 import { FcHome, FcAbout, FcContacts, FcServices, FcBriefcase} from "react-icons/fc";
