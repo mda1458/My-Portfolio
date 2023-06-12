@@ -3,13 +3,35 @@ import { motion } from "framer-motion";
 
 import "./Navbar.scss"
 import { images } from "../../constants"
-import { GiHamburger } from "react-icons/gi";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { GrFormClose } from "react-icons/gr";
+import { FcHome, FcAbout, FcContacts, FcServices, FcBriefcase} from "react-icons/fc";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
-  const navlinks = ["home", "about", "work", "skills", "contact"];
+  const navlinks = [
+    {
+    name: "Home",
+    icon: <FcHome />,
+    },
+    {
+    name: "About",
+    icon: <FcAbout />,
+    },
+    {
+    name: "Work",
+    icon: <FcBriefcase />,
+    },
+    {
+      name: "Skills",
+      icon: <FcServices />,
+    },
+    {
+      name: "Contact",
+      icon: <FcContacts />,
+    },
+];
 
   return (
     <nav className="app__navbar">
@@ -20,32 +42,30 @@ const Navbar = () => {
         {navlinks.map((item, index) => (
           <li key={index} className="app__flex p-text">
             <div />
-            <a href={`#${item}`}>{item}</a>
+            <a href={`#${item.name}`}>{item.name}</a>
           </li>
         ))}
       </ul>
 
       <div className="app__navbar-menu">
-          <GiHamburger onClick={() => setToggle(true)} />
-          {
-            toggle && (
-              <motion.div
-                whileInView={{ x: [300, 0]}}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-              >
-
-                <GrFormClose onClick={() => setToggle(false)} />
-                <ul>
-                {navlinks.map((item) => (
-                  <li key={item}>
-                    <a href={`#${item}`} onClick={() => setToggle(false)}>{item}</a>
-                  </li>
-                ))}
-                </ul>
-
-              </motion.div>
-            )
-          }
+        <GiHamburgerMenu onClick={() => setToggle(true)} />
+        {toggle && (
+          <motion.div
+            whileInView={{ x: [300, 0] }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <GrFormClose onClick={() => setToggle(false)} />
+            <ul>
+              {navlinks.map((item) => (
+                <li key={item}>
+                  <a href={`#${item.name}`} onClick={() => setToggle(false)}>
+                    {item.icon} {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
       </div>
     </nav>
   );
