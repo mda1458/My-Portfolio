@@ -13,23 +13,23 @@ const Navbar = () => {
 
   const navlinks = [
     {
-    name: "Home",
+    name: "home",
     icon: <FcHome />,
     },
     {
-    name: "About",
+    name: "about",
     icon: <FcAbout />,
     },
     {
-    name: "Work",
+    name: "work",
     icon: <FcBriefcase />,
     },
     {
-      name: "Skills",
+      name: "skills",
       icon: <FcServices />,
     },
     {
-      name: "Contact",
+      name: "contact",
       icon: <FcContacts />,
     },
 ];

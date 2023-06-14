@@ -20,7 +20,7 @@ const About = () => {
 
 
   return (
-    <>
+    <div className="app__about">
       <h2 className="head-text">
         I know that <span>Good design</span><br /> means <span>Good business</span>
       </h2>
@@ -45,7 +45,7 @@ const About = () => {
         ))}
 
       </div>
-    </>
+    </div>
   )
 }
 
