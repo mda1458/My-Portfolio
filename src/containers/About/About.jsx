@@ -8,11 +8,7 @@ import { client, urlFor } from "../../client"
 
 const About = () => {
   const [abouts, setAbouts] = useState([])
-
-  const getimgUrl = (imgUrl) => {
-    return urlFor(imgUrl).url()
-  }
-
+  
   useEffect(() => {
     const query = '*[_type == "abouts"]';
     client.fetch(query).then((abouts) => setAbouts(abouts))
@@ -34,7 +30,7 @@ const About = () => {
             transition={{ duration: 0.5, type: "tween" }}
             className="app__profile-item"
           >
-            <img src={getimgUrl(about.imgUrl)} alt="" />
+            <img src={urlFor(about.imgUrl)} alt="" />
             <h2 className="bold-text" style={{marginTop: 20}}>
               {about.title}
             </h2>
