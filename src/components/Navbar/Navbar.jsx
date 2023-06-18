@@ -6,33 +6,44 @@ import { images } from "../../constants"
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrFormClose } from "react-icons/gr";
-import { FcHome, FcAbout, FcContacts, FcServices, FcBriefcase} from "react-icons/fc";
+import {
+  FcHome,
+  FcAbout,
+  FcContacts,
+  FcServices,
+  FcBriefcase,
+  FcRatings,
+} from "react-icons/fc";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   const navlinks = [
     {
-    name: "home",
-    icon: <FcHome />,
+      name: "home",
+      icon: <FcHome />,
     },
     {
-    name: "about",
-    icon: <FcAbout />,
+      name: "about",
+      icon: <FcAbout />,
     },
     {
-    name: "work",
-    icon: <FcBriefcase />,
+      name: "work",
+      icon: <FcBriefcase />,
     },
     {
       name: "skills",
       icon: <FcServices />,
     },
     {
+      name: "testimonial",
+      icon: <FcRatings />,
+    },
+    {
       name: "contact",
       icon: <FcContacts />,
     },
-];
+  ];
 
   return (
     <nav className="app__navbar">
