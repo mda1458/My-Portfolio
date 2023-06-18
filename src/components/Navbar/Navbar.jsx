@@ -59,6 +59,29 @@ const Navbar = () => {
         ))}
       </ul>
 
+      {/* Hire Me */}
+      <div className="app__navbar-hire">
+        <div className="dropdown">
+          <button className="dropbtn">Hire Me</button>
+          <div className="dropdown-content">
+            <a href="https://www.fiverr.com/mdanish1458" rel="noreferrer" target="_blank">
+              <img
+                src="https://yt3.googleusercontent.com/Mj4TTOdm0OikXs2vODcDHS4FEg4Cr15Xb8W3UaJTc6YYs87oEMAMGK4BLp6hLtRve09whNDXmA=s900-c-k-c0x00ffffff-no-rj"
+                alt=""
+              />{" "}
+              <span>Fiverr</span>
+            </a>
+            <a href="https://www.upwork.com/freelancers/~017c5055f5cc6e0559" rel="noreferrer" target="_blank">
+              <img
+                src="https://www.citypng.com/public/uploads/preview/upwork-round-logo-icon-png-116625559716y405kvdce.png"
+                alt=""
+              />{" "}
+              <span>Upwork</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div className="app__navbar-menu">
         <GiHamburgerMenu onClick={() => setToggle(true)} />
         {toggle && (
