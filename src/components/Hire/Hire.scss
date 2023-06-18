@@ -1,5 +1,5 @@
 .fab-container {
-    width: 100px;
+    width: 130px;
     display: flex;
     list-style: none;
     margin: 0;
@@ -10,6 +10,7 @@
     bottom: 1.5rem;
 
     .fab-button {
+        font-size: 20px;
         border-radius: 20px;
         box-shadow: 0 3px 6px lightgrey;
         display: flex;
@@ -32,6 +33,7 @@
         display: none;
         list-style: none;
         .fab-actions-item {
+            background: var(--white-color);
             border-radius: 20px;
             box-shadow: 0 3px 6px lightgrey;
             align-items: center;
@@ -47,7 +49,7 @@
                 text-decoration: none;
     
                 .fab-label {
-                    font-size: 16px;
+                    font-size: 20px;
                     font-weight: 600;
                     color: var(--gray-color);
                     border-radius: 4px;
@@ -56,15 +58,14 @@
     
                 .fab-icon {
                     img {
-                        width: 20px;
-                        height: 20px;
+                        width: 30px;
+                        height: 30px;
                     }
                 }
             }
         }
 
     }
-    // on hover of fab-button change fab-action class display to flex
     &:hover {
         .fab-actions {
             display: block

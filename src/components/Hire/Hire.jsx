@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 
-import cn from "classnames";
 import { FaUserSecret } from "react-icons/fa";
 
 import "./Hire.scss";
@@ -28,9 +26,9 @@ const Hire = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <motion.div className="fab-button" whileHover={{ scale: 1.1 }}>
+      <div className="fab-button">
         <FaUserSecret /> <span>Hire Me</span>
-      </motion.div>
+      </div>
       <ul className="fab-actions">
         {sites.map((site, index) => (
           <motion.li
