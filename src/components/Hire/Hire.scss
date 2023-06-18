@@ -1,67 +1,73 @@
 .fab-container {
+    width: 100px;
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
-    flex-direction: column-reverse;
     position: fixed;
-    right: 2em;
-    bottom: 2em;
-    max-height: 52px;
-
-    &.open {
-        max-height: max-content;
-    }
-
-    li {
-        border-radius: 50%;
-        box-shadow: 0 3px 6px lightgrey;
-        display: grid;
-        place-items: center;
-        margin: 8px 0;
-        font-size: 28px;
-        padding: 12px;
-        cursor: pointer;
-        position: relative;
-    }
+    flex-direction: column-reverse;
+    right: 1.5rem;
+    bottom: 1.5rem;
 
     .fab-button {
-        background-color: #00a8ff;
+        border-radius: 20px;
+        box-shadow: 0 3px 6px lightgrey;
+        display: flex;
+        align-items: center;
+        margin: 8px 0;
+        padding: 8px;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        color: var(--white-color);
+        background: var(--secondary-color);
 
         svg {
             fill: white;
+            margin-right: 8px;
         }
     }
 
-    .fab-action {
-        transform: translateY(50px) scale(0);
-        transition: transform 300ms, opacity 300ms;
-        opacity: 0;
+    .fab-actions {
+        display: none;
+        list-style: none;
+        .fab-actions-item {
+            border-radius: 20px;
+            box-shadow: 0 3px 6px lightgrey;
+            align-items: center;
+            margin: 8px 0;
+            padding: 8px;
+            cursor: pointer;
+            position: relative;
 
-        &:hover {
-            .tooltip {
-                transform: translateX(-100%) scale(1);
-                opacity: 1;
+            a {
+                display: inline-flex;
+                align-items: center;
+                color: var(--white-color);
+                text-decoration: none;
+    
+                .fab-label {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: var(--gray-color);
+                    border-radius: 4px;
+                    margin: 0 8px;
+                }
+    
+                .fab-icon {
+                    img {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
             }
         }
 
-        &.open {
-            transform: translateY(0) scale(1);
-            opacity: 1;
-        }
-
-        .tooltip {
-            padding: 4px 6px;
-            font-size: 12px;
-            position: absolute;
-            left: -12px;
-            transform: translateX(-75%);
-            background-color: #353b48;
-            border-radius: 4px;
-            color: white;
-            opacity: 0;
-            transition: transform 300ms, opacity 300ms;
-            user-select: none;
+    }
+    // on hover of fab-button change fab-action class display to flex
+    &:hover {
+        .fab-actions {
+            display: block
         }
     }
 }
