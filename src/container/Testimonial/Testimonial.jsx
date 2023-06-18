@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 
@@ -30,7 +30,14 @@ const Testimonial = () => {
 
   return (
     <>
-      {testimonials.length && (
+      {testimonials.length === 0 ? 
+        <div className="app__testimonial-item app__flex">
+          <div className="app__testimonial-content">
+            <p className="p-text">No testimonials yet</p>
+          </div>
+        </div>
+        :
+       (
         <>
           <div className="app__testimonial-item app__flex">
             <img src={urlFor(testimonials[currentIndex].imgurl)} alt={testimonials[currentIndex].name} />
