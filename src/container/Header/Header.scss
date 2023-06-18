@@ -59,7 +59,7 @@
     align-items: flex-end;
     flex-direction: column;
 
-    .badge-cmp, .tag-cmp {
+    .badge-cmp {
         padding: 1rem 2rem;
         border: var(--white-color) 15px;
         flex-direction: row;
@@ -68,15 +68,8 @@
         box-shadow: 0 0 20px rgba(0,0,0,0.1);
     }
 
-    .tag-cmp {
-        flex-direction: column;
-        margin-top: 3rem;
-
-        p {
-            width: 100%;
-            text-align: center;
-            text-transform: uppercase;
-        }
+    .Typewriter {
+        
     }
 
     span {
@@ -188,7 +181,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     position: relative;
+
+    span {
+        position: absolute;
+        top: -0.5rem;
+        z-index: 1;
+        color: var(--gray-color);
+        font-size: larger;
+        font-weight: 600;
+
+        @media screen and (max-width: 1200px) {
+            top: -2rem;
+        }
+
+    }
 
     img {
         width: 70%;

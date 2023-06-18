@@ -4,6 +4,8 @@ import { AppWrap } from "../../wrapper"
 import "./Header.scss"
 import { images } from "../../constants"
 
+import { Typewriter } from 'react-simple-typewriter';
+
 const Header = () => {
   const scaleVariant = {
     whileInView: {
@@ -18,10 +20,10 @@ const Header = () => {
 
   const skillsLogo = [
     images.react,
+    images.next,
     images.node,
-    images.python,
-    images.redux,
-    images.sass,
+    images.mongodb,
+    images.express,
   ]
 
   return (
@@ -39,14 +41,7 @@ const Header = () => {
               <h1 className="head-text">Muhammad Danish</h1>
             </div>
           </div>
-
-          <div className="tag-cmp app_flex">
-            <p className="p-text">Full Stack Developer</p>
-            <p className="p-text">CYS Enthusiast</p>
-            <p className="p-text">Freelancer</p>
-          </div>
         </div>
-
       </motion.div>
 
       <motion.div
@@ -54,6 +49,14 @@ const Header = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__header-img"
       >
+          <Typewriter
+            words={['MERN Stack Developer', 'React Js Developer', 'Next Js Developer', 'Backend Developer']}
+            loop={0}
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        
         <img src={images.profile} alt="profile" />
         <motion.img
           whileInView={{ scale: [0, 1] }}
@@ -69,17 +72,14 @@ const Header = () => {
         whileInView={scaleVariant.whileInView}
         className="app__header-circles"
       >
-        {
-          skillsLogo.map((logo, index) => (
-            <div className="circle-cmp app__flex" key={`circle-${index}`}>
-              <img src={logo} alt="logo" />
-            </div>
-          ))
-        }
-
+        {skillsLogo.map((logo, index) => (
+          <div className="circle-cmp app__flex" key={`circle-${index}`}>
+            <img src={logo} alt="logo" />
+          </div>
+        ))}
       </motion.div>
     </div>
-  )
+  );
 }
 
 export default AppWrap(Header, 'home');

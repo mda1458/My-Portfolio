@@ -35,6 +35,10 @@ import nb from "../assets/nb.png";
 import skype from "../assets/skype.png";
 import spotify from "../assets/spotify.png";
 
+import express from "../assets/express.png";
+import mongodb from "../assets/mongo.png";
+import next from "../assets/next.png";
+
 export default {
   email,
   mobile,
@@ -69,4 +73,7 @@ export default {
   nb,
   skype,
   spotify,
+  express,
+  mongodb,
+  next,
 };
