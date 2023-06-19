@@ -93,7 +93,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: #2430af;
+      background: var(--invert-gradient);
     }
   }
 

@@ -67,8 +67,11 @@
 
     }
     &:hover {
+        .fab-button{
+            background: var(--invert-gradient);
+        }
         .fab-actions {
-            display: block
+            display: block;
         }
     }
 }
