@@ -30,7 +30,7 @@ const About = () => {
             always ready to tackle challenges head-on! 💥👊
           </p>
           <p>
-            🌐 When it comes to <span>web development</span>, {"I'm"}{" "}
+            🌐 When it comes to <span>Web Development</span>, {"I'm"}{" "}
             well-versed in utilizing powerful frameworks and libraries like{" "}
             <span>React JS, Next Js, and Express Js</span>. Crafting beautiful
             and interactive web experiences is my specialty! 🖥️💼🎨
