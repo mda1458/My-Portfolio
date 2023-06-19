@@ -36,7 +36,9 @@ const Footer = () => {
 
   return (
     <>
-      <h2 className="head-text">Take a coffee & chat with me</h2>
+      <h2 className="head-text">
+        Take a <span>coffee</span> & <span>chat</span> with me
+      </h2>
 
       <div className="app__footer-cards">
         <a href="mailto:muhammaddanish1458@gmail.com">
@@ -45,7 +47,7 @@ const Footer = () => {
             alt=""
           />
         </a>
-        <a href="https://wa.me/+923135692472" target='_blank' rel='noreferrer'>
+        <a href="https://wa.me/+923135692472" target="_blank" rel="noreferrer">
           <img
             src="https://cdn-icons-png.flaticon.com/128/5968/5968841.png"
             alt=""

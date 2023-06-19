@@ -49,11 +49,18 @@ const Navbar = () => {
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <img src={images.logo} alt="logo" />
+        <a href="#" onClick={()=>setActiveLink('')}>
+          <img src={images.logo} alt="logo" />
+        </a>
       </div>
       <ul className="app__navbar-links">
         {navlinks.map((item, index) => (
-          <li key={index} className={`app__flex p-text ${activeLink===item.name?"active":""}`}>
+          <li
+            key={index}
+            className={`app__flex p-text ${
+              activeLink === item.name ? "active" : ""
+            }`}
+          >
             <div />
             <a href={`#${item.name}`} onClick={() => setActiveLink(item.name)}>
               {item.name}
