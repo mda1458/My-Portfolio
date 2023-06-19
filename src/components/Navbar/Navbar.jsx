@@ -16,6 +16,7 @@ import {
 } from "react-icons/fc";
 
 const Navbar = () => {
+  const [activeLink, setActiveLink] = useState("");
   const [toggle, setToggle] = useState(false);
 
   const navlinks = [
@@ -52,9 +53,11 @@ const Navbar = () => {
       </div>
       <ul className="app__navbar-links">
         {navlinks.map((item, index) => (
-          <li key={index} className="app__flex p-text">
+          <li key={index} className={`app__flex p-text ${activeLink===item.name?"active":""}`}>
             <div />
-            <a href={`#${item.name}`}>{item.name}</a>
+            <a href={`#${item.name}`} onClick={() => setActiveLink(item.name)}>
+              {item.name}
+            </a>
           </li>
         ))}
       </ul>

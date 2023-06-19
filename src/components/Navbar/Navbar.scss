@@ -73,6 +73,21 @@
             div {
                 background: var(--secondary-color);
             }
+            a {
+                background: -webkit-linear-gradient(315deg, #05e8ba 0%, #087ee1 74%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    }
+    .active {
+        div {
+            background: var(--secondary-color);
+        }
+        a {
+            background: -webkit-linear-gradient(315deg, #05e8ba 0%, #087ee1 74%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     }
 
@@ -90,7 +105,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--secondary-color);
+    background: var(--secondary-color);
 
 
     svg {
