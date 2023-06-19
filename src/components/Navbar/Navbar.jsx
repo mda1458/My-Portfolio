@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-import "./Navbar.scss"
-import { images } from "../../constants"
+import "./Navbar.scss";
+import { images } from "../../constants";
 
+import { AiOutlineDownload } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrFormClose } from "react-icons/gr";
 import {
@@ -15,9 +16,20 @@ import {
   FcRatings,
 } from "react-icons/fc";
 
+import { client } from "../../client";
+
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState("");
   const [toggle, setToggle] = useState(false);
+  const [resume, setResume] = useState("");
+
+  useEffect(() => {
+    const query = '*[_type == "resume"]';
+
+    client.fetch(query).then((data) => {
+      setAbouts(data);
+    });
+  }, []);
 
   const navlinks = [
     {
@@ -29,12 +41,12 @@ const Navbar = () => {
       icon: <FcAbout />,
     },
     {
-      name: "work",
-      icon: <FcBriefcase />,
-    },
-    {
       name: "skills",
       icon: <FcServices />,
+    },
+    {
+      name: "work",
+      icon: <FcBriefcase />,
     },
     {
       name: "testimonial",
@@ -49,7 +61,7 @@ const Navbar = () => {
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <a href="#" onClick={()=>setActiveLink('')}>
+        <a href="#" onClick={() => setActiveLink("")}>
           <img src={images.logo} alt="logo" />
         </a>
       </div>
@@ -73,7 +85,6 @@ const Navbar = () => {
         <GiHamburgerMenu onClick={() => setToggle(true)} />
         {toggle && (
           <motion.div
-            // create ease inout transition
             initial={{ x: 100 }}
             animate={{ x: 0 }}
             transition={{ type: "spring", stiffness: 100, delay: 0.1 }}
@@ -82,18 +93,36 @@ const Navbar = () => {
             <ul>
               {navlinks.map((item) => (
                 <li key={item}>
+                  {item.icon}
                   <a href={`#${item.name}`} onClick={() => setToggle(false)}>
-                    {item.icon}
                     {item.name}
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  className="menu-resume"
+                  onClick={() => setToggle(false)}
+                  href="#"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <AiOutlineDownload />
+                  My Resume
+                </a>
+              </li>
             </ul>
           </motion.div>
         )}
       </div>
+      <div className="resume">
+        <a href="" target="_blank" rel="noreferrer">
+          My Resume
+          <AiOutlineDownload />
+        </a>
+      </div>
     </nav>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
