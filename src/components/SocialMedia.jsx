@@ -1,30 +1,42 @@
-import { FiLinkedin, FiFacebook, FiInstagram, FiGithub } from 'react-icons/fi'
+import { FiLinkedin, FiFacebook, FiInstagram, FiGithub } from "react-icons/fi";
 
 const SocialMedia = () => {
   return (
     <div className="app__social">
-      <div>
-        <a target='_blank' rel='noreferrer' href="https://github.com/mda1458">
+      <a 
+        target="_blank" 
+        rel="noreferrer" 
+        href="https://github.com/mda1458"
+      >
+        <div>
           <FiGithub />
-        </a>
-      </div>
-      <div>
-        <a target='_blank' rel='noreferrer' href="https://www.linkedin.com/in/mda1458">
+        </div>
+      </a>
+      <a
+        target="_blank"
+        rel="noreferrer"
+        href="https://www.linkedin.com/in/mda1458"
+      >
+        <div>
           <FiLinkedin />
-        </a>
-      </div>
-      <div>
-        <a target='_blank' rel='noreferrer' href="https://www.fb.com/mda1458/">
+        </div>
+      </a>
+      <a target="_blank" rel="noreferrer" href="https://www.fb.com/mda1458/">
+        <div>
           <FiFacebook />
-        </a>
-      </div>
-      <div>
-        <a target='_blank' rel='noreferrer' href="https://www.instagram.com/iamdanish1458/">
+        </div>
+      </a>
+      <a
+        target="_blank"
+        rel="noreferrer"
+        href="https://www.instagram.com/iamdanish1458/"
+      >
+        <div>
           <FiInstagram />
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
   );
-}
+};
 
-export default SocialMedia
+export default SocialMedia;

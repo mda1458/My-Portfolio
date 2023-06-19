@@ -59,7 +59,9 @@
     text-transform: capitalize;
 
     span {
-        color: var(--secondary-color);
+        background: -webkit-linear-gradient(315deg, #05e8ba 0%, #087ee1 74%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     @media screen and (min-width: 2000px) {
@@ -111,7 +113,6 @@
         border-radius: 50%;
         background-color: var(--white-color);
         margin: 0.25rem 0;
-        border: 1px solid var(--lightGray-color);
 
         display: flex;
         justify-content: center;
@@ -126,8 +127,7 @@
         }
 
         &:hover {
-            background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
+            background: var(--secondary-color);
 
             svg {
                 color: var(--white-color);
@@ -166,7 +166,7 @@
         transition: background-color 0.2s ease-in-out;
 
         &:hover {
-            background-color: var(--secondary-color);
+            background: var(--secondary-color);
         }
 
         @media screen and (min-width: 2000px) {
