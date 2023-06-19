@@ -27,7 +27,10 @@ const Navbar = () => {
     const query = '*[_type == "resume"]';
 
     client.fetch(query).then((data) => {
-      setAbouts(data);
+      const ref = data[0].pdf.asset._ref.slice(5, -4);
+      const projectId = import.meta.env.VITE_SANITY_PROJECT_ID;
+      const url = `https://cdn.sanity.io/files/${projectId}/production/${ref}.pdf?dl=${data[0].title}.pdf`;
+      setResume(url);
     });
   }, []);
 
@@ -103,7 +106,7 @@ const Navbar = () => {
                 <a
                   className="menu-resume"
                   onClick={() => setToggle(false)}
-                  href="#"
+                  href={resume}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -116,7 +119,7 @@ const Navbar = () => {
         )}
       </div>
       <div className="resume">
-        <a href="" target="_blank" rel="noreferrer">
+        <a href={resume} target="_blank" rel="noreferrer">
           My Resume
           <AiOutlineDownload />
         </a>
