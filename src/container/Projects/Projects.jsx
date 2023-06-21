@@ -25,6 +25,7 @@ const Projects = () => {
   }, []);
 
   const handleProjectFilter = (item) => {
+    setViewAll(false);
     setActiveFilter(item);
     setAnimateCard([{ y: 100, opacity: 0 }]);
 
