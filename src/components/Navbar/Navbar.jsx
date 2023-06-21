@@ -14,6 +14,7 @@ import {
   FcServices,
   FcBriefcase,
   FcRatings,
+  FcDoughnutChart,
 } from "react-icons/fc";
 
 import { client } from "../../client";
@@ -44,12 +45,16 @@ const Navbar = () => {
       icon: <FcAbout />,
     },
     {
+      name: "work",
+      icon: <FcBriefcase />,
+    },
+    {
       name: "skills",
       icon: <FcServices />,
     },
     {
-      name: "work",
-      icon: <FcBriefcase />,
+      name: "projects",
+      icon: <FcDoughnutChart />,
     },
     {
       name: "testimonial",
