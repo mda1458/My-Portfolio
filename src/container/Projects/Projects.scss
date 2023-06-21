@@ -3,6 +3,25 @@
   flex: 1;
   width: 100%;
   flex-direction: column;
+
+  button {
+    margin: 0 0.5rem;
+    background: var(--secondary-color);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 800;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--invert-gradient);
+    }
+
+  }
+  .hidden {
+    display: none;
+  }
 }
 
 .app__project-filter {

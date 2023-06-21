@@ -7,6 +7,7 @@ import { urlFor, client } from '../../client';
 import './Projects.scss';
 
 const Projects = () => {
+  const [viewAll, setViewAll] = useState(false);
   const [projects, setProjects] = useState([]);
   const [filterProject, setFilterProject] = useState([]);
   const [activeFilter, setActiveFilter] = useState('All');
@@ -71,10 +72,14 @@ const Projects = () => {
         className="app__project-portfolio"
       >
         {filterProject.map((project, index) => (
-          <div className="app__project-item app__flex" key={index}>
+          <div
+            className={`app__project-item app__flex ${
+              index > 2 ? (viewAll ? "" : "hidden") : ""
+            }`}
+            key={index}
+          >
             <div className="app__project-img app__flex">
               <img src={urlFor(project.imgUrl)} alt={project.name} />
-
               <motion.div
                 whileHover={{ opacity: [0, 1] }}
                 transition={{
@@ -126,9 +131,7 @@ const Projects = () => {
                       className="app__project-tech"
                       key={index}
                     >
-                      <div>
-                        {tech.tag}
-                      </div>
+                      <div>{tech.tag}</div>
                       <img src={urlFor(tech.icon)} alt={project.name} />
                     </motion.div>
                   ))}
@@ -137,6 +140,18 @@ const Projects = () => {
           </div>
         ))}
       </motion.div>
+      <button
+        className={viewAll ? "hidden" : ""}
+        onClick={() => setViewAll(true)}
+      >
+        Show All
+      </button>
+      <button
+        className={viewAll ? "" : "hidden"}
+        onClick={() => setViewAll(false)}
+      >
+        Show Less
+      </button>
     </>
   );
 };
