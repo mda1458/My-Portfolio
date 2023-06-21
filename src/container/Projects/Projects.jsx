@@ -141,13 +141,13 @@ const Projects = () => {
         ))}
       </motion.div>
       <button
-        className={viewAll ? "hidden" : ""}
+        className={filterProject.length > 3? viewAll ? "hidden" : "":"hidden"}
         onClick={() => setViewAll(true)}
       >
         Show All
       </button>
       <button
-        className={viewAll ? "" : "hidden"}
+        className={filterProject.length > 3? viewAll ? "" : "hidden": "hidden"}
         onClick={() => setViewAll(false)}
       >
         Show Less

@@ -2,7 +2,7 @@
 const NavigationDots = ({ active }) => {
   return (
     <div className="app__navigation">
-      {["home", "about", "skills", "work", "testimonial", "contact"].map(
+      {["home", "about", "work", "skills", "projects", "testimonial", "contact"].map(
         (item, index) => (
           <a
             key={index}
