@@ -66,6 +66,66 @@ const Navbar = () => {
     },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const about = document.getElementById("about");
+      const work = document.getElementById("work");
+      const skills = document.getElementById("skills");
+      const projects = document.getElementById("projects");
+      const testimonial = document.getElementById("testimonial");
+      const contact = document.getElementById("contact");
+
+      if (
+        currentScrollY >= 0 &&
+        currentScrollY < about.offsetTop - 100 &&
+        activeLink !== "home"
+      ) {
+        setActiveLink("home");
+      } else if (
+        currentScrollY >= about.offsetTop - 100 &&
+        currentScrollY < work.offsetTop - 100 &&
+        activeLink !== "about"
+      ) {
+        setActiveLink("about");
+      } else if (
+        currentScrollY >= work.offsetTop - 100 &&
+        currentScrollY < skills.offsetTop - 100 &&
+        activeLink !== "work"
+      ) {
+        setActiveLink("work");
+      } else if (
+        currentScrollY >= skills.offsetTop - 100 &&
+        currentScrollY < projects.offsetTop - 100 &&
+        activeLink !== "skills"
+      ) {
+        setActiveLink("skills");
+      } else if (
+        currentScrollY >= projects.offsetTop - 100 &&
+        currentScrollY < testimonial.offsetTop - 100 &&
+        activeLink !== "projects"
+      ) {
+        setActiveLink("projects");
+      } else if (
+        currentScrollY >= testimonial.offsetTop - 100 &&
+        currentScrollY < contact.offsetTop - 100 &&
+        activeLink !== "testimonial"
+      ) {
+        setActiveLink("testimonial");
+      } else if (
+        currentScrollY >= contact.offsetTop - 100 &&
+        activeLink !== "contact"
+      ) {
+        setActiveLink("contact");
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+
+  }, [activeLink]);
+
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
