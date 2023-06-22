@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
-import { client } from "../../client";
+import { urlFor, client } from "../../client";
 import "./Work.scss";
 
 const Work = () => {
@@ -19,46 +19,51 @@ const Work = () => {
 
   return (
     <>
-      <h2 className="head-text">Work <span>Experience</span></h2>
+      <h2 className="head-text">
+        Work <span>Experience</span>
+      </h2>
 
       <div className="app__skills-container">
-        <div className="app__skills-exp">
-          {experiences.map((experience) => (
-            <motion.div
-              className="app__skills-exp-item"
-              key={experience.year}
-            >
-              <div className="app__skills-exp-year">
-                <p className="bold-text">{experience.year}</p>
+        {experiences.map((experience, index) => (
+          <motion.div
+            className="app__exp"
+            key={index}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <div className="app__exp-item">
+              <div className="app__exp-item__logo">
+                <img src={urlFor(experience.imgUrl)} alt={experience} />
               </div>
-              <motion.div className="app__skills-exp-works">
-                {experience.works.map((work) => (
-                  <>
-                    <motion.div
-                      whileInView={{ opacity: [0, 1] }}
-                      transition={{ duration: 0.5 }}
-                      className="app__skills-exp-work"
-                      data-tip
-                      data-for={work.name}
-                      key={work.name}
-                    >
-                      <h4 className="bold-text">{work.name}</h4>
-                      <p className="p-text">{work.company}</p>
-                    </motion.div>
-                    <ReactTooltip
-                      id={work.name}
-                      effect="solid"
-                      arrowColor="#fff"
-                      className="skills-tooltip"
-                    >
-                      {work.desc}
-                    </ReactTooltip>
-                  </>
-                ))}
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
+              <div className="app__exp-item__date">
+                <h3>
+                  {new Date(experience.from).toDateString().slice(3)}
+                  <div />
+                </h3>
+                <div />
+                <h3>
+                  <div />
+                  {new Date(experience.to).toDateString().slice(3)}
+                </h3>
+              </div>
+              <div className="app__exp-works">
+                <div className="app__exp-work">
+                  <h3>{experience.title}</h3>
+                  <h4>{experience.company}</h4>
+                  <p>{experience.description}</p>
+                  <div className="achievements">
+                    <h4>Achievements</h4>
+                    <ul>
+                      {experience.achievements.map((achievement, index) => (
+                        <li key={index}>{achievement}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </>
   );
