@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Tooltip as ReactTooltip } from "react-tooltip";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
@@ -28,8 +27,6 @@ const Work = () => {
           <motion.div
             className="app__exp"
             key={index}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
             <div className="app__exp-item">
               <div className="app__exp-item__logo">
@@ -48,9 +45,9 @@ const Work = () => {
               </div>
               <div className="app__exp-works">
                 <div className="app__exp-work">
-                  <h3>{experience.title}</h3>
-                  <h4>{experience.company}</h4>
-                  <p>{experience.description}</p>
+                  <h2>{experience.title}</h2>
+                  <h3>{experience.company}</h3>
+                  <p className="p-text">{experience.description}</p>
                   <div className="achievements">
                     <h4>Achievements</h4>
                     <ul>

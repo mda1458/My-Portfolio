@@ -18,7 +18,6 @@ const Projects = () => {
 
     client.fetch(query).then((data) => {
       data.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
-      console.log(data);
       setProjects(data);
       setFilterProject(data);
     });
