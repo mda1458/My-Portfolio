@@ -178,9 +178,21 @@
 
 @media screen and (max-width: 500px) {
 
-    .app__navigation,
-    .app__social {
+    .app__navigation
+    {
         display: none;
+    }
+
+    .app__social {
+        position: fixed;
+        bottom: 50%;
+        right: 5%;
+        div {
+            background-color: #ffffff3f;
+        }
+        a {
+            position: absolute;
+        }
     }
 
     .copyright {
