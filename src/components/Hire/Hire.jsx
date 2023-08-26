@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 
 import { FaUserSecret } from "react-icons/fa";
+import { images } from "../../constants";
 
 import "./Hire.scss";
 
@@ -10,12 +11,12 @@ const Hire = () => {
     {
       name: "Fiverr",
       url: "https://www.fiverr.com/mdanish1458",
-      icon: "https://yt3.googleusercontent.com/Mj4TTOdm0OikXs2vODcDHS4FEg4Cr15Xb8W3UaJTc6YYs87oEMAMGK4BLp6hLtRve09whNDXmA=s900-c-k-c0x00ffffff-no-rj",
+      icon: images.fiverr,
     },
     {
       name: "Upwork",
       url: "https://www.upwork.com/freelancers/~0151ab7f32f8e74445",
-      icon: "https://www.citypng.com/public/uploads/preview/upwork-round-logo-icon-png-116625559716y405kvdce.png",
+      icon: images.upwork,
     },
   ];
   

@@ -38,6 +38,8 @@ import spotify from "../assets/spotify.png";
 import express from "../assets/express.png";
 import mongodb from "../assets/mongo.png";
 import next from "../assets/next.png";
+import fiverr from "../assets/fiverr.jpg";
+import upwork from "../assets/upwork.png";
 
 export default {
   email,
@@ -76,4 +78,6 @@ export default {
   express,
   mongodb,
   next,
+  fiverr,
+  upwork,  
 };
