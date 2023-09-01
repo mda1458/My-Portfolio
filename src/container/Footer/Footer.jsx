@@ -1,10 +1,12 @@
 import { useState } from 'react';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { client } from '../../client';
 import './Footer.scss';
 
+import emailjs from '@emailjs/browser'
+
 const Footer = () => {
+  const [Error, setError] = useState('');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -19,21 +21,30 @@ const Footer = () => {
   const handleSubmit = () => {
     setLoading(true);
 
-    const contact = {
-      _type: 'contact',
-      name: formData.username,
-      email: formData.email,
-      message: formData.message,
-    };
+    if (!username || !email || !message) {
+      setError('Please fill in all fields.');
+      setLoading(false);
+      return;
+    }
+    
+    const param = {
+      from_name: username,
+      email_id: email,
+      message: message,
+    }
 
-    client.create(contact)
+    const service_id = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const template_id = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const user_id = import.meta.env.VITE_EMAILJS_USER_ID
+
+    emailjs.send(service_id, template_id, param, user_id)
       .then(() => {
-        setLoading(false);
         setIsFormSubmitted(true);
-      })
-      .catch((err) => console.log(err));
+        setLoading(false);
+      }, () => {
+        setLoading(false);
+      });
   };
-
   return (
     <>
       <h2 className="head-text">
@@ -88,6 +99,7 @@ const Footer = () => {
           <button type="button" className="p-text" onClick={handleSubmit}>
             {!loading ? "Send Message" : "Sending..."}
           </button>
+          <div className="error">{Error}</div>
         </div>
       ) : (
         <div>
