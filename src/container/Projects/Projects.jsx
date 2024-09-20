@@ -10,6 +10,7 @@ const Projects = () => {
   const [viewAll, setViewAll] = useState(false);
   const [projects, setProjects] = useState([]);
   const [filterProject, setFilterProject] = useState([]);
+  const [tags, setTags] = useState([]);
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 
@@ -20,6 +21,17 @@ const Projects = () => {
       data.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
       setProjects(data);
       setFilterProject(data);
+      
+      // Collect all tags from the projects
+      const allTags = data.reduce((acc, project) => {
+        return [...acc, ...project.tags];
+      }, []);
+      
+      // Get unique tags
+      const uniqueTags = [...new Set(allTags)];
+      
+      // Set tags including 'All' as default
+      setTags(['All', ...uniqueTags]);
     });
   }, []);
 
@@ -46,14 +58,7 @@ const Projects = () => {
       </h2>
 
       <div className="app__project-filter">
-        {[
-          "Programming",
-          "Web App",
-          "Mobile App",
-          "Desktop App",
-          "AI",
-          "All",
-        ].map((item, index) => (
+        {tags.map((item, index) => (
           <div
             key={index}
             onClick={() => handleProjectFilter(item)}
