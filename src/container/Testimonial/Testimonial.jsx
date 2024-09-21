@@ -69,7 +69,7 @@ const Testimonial = () => {
                   className="app__testimonial-country"
                   key={currentIndex}
                 >
-                  <div>{country}</div>
+                  <div>{country.replace(" ","_")}</div>
                   <img src={`https://flagsapi.com/${testimonials[currentIndex].country}/shiny/64.png`} alt={testimonials[currentIndex].country} />
                 </motion.div>
               </div>
