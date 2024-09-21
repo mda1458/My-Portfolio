@@ -20,78 +20,13 @@ const Testimonial = () => {
     const query = '*[_type == "testimonials"]';
     const brandsQuery = '*[_type == "brands"]';
 
-    // client.fetch(query).then((data) => {
-    //   setTestimonials(data);
-    // });
+    client.fetch(query).then((data) => {
+      setTestimonials(data);
+    });
 
-    // client.fetch(brandsQuery).then((data) => {
-    //   setBrands(data);
-    // });
-    setTestimonials([
-      {
-          "_type": "testimonials",
-          "_id": "3e7d1ef9-51ff-4596-8fa9-7617f98de8d3",
-          "_updatedAt": "2024-09-21T09:29:28Z",
-          "feedback": "On each occasion I have enjoyed working with Danish, it's always precise, these skills range from development to WebMaster... he is competent and reliable; As a Project Manager or Product Manager it is very nice to be able to trust. IT Program Manager, from Paris",
-          "_createdAt": "2024-09-20T19:24:57Z",
-          "_rev": "Dlj0RwBjZgOnRNY7tzS8bi",
-          "name": "Crepin",
-          "company": "Umanitylabs",
-          "country": "FR",
-          "imgurl": {
-              "hotspot": {
-                  "width": 1,
-                  "x": 0.5,
-                  "y": 0.5,
-                  "height": 1,
-                  "_type": "sanity.imageHotspot"
-              },
-              "_type": "image",
-              "asset": {
-                  "_ref": "image-404ea22a0d47edfaf90f03e02480aaace679ec63-699x624-jpg",
-                  "_type": "reference"
-              },
-              "crop": {
-                  "bottom": 0,
-                  "_type": "sanity.imageCrop",
-                  "right": 0,
-                  "top": 0,
-                  "left": 0
-              }
-          }
-      },
-      {
-          "company": "US Client",
-          "_updatedAt": "2024-09-20T18:34:55Z",
-          "feedback": "Danish has been my go-to developer for all my projects, always delivering exceptional work with impeccable attention to detail, clean and bug-free code, and a deep understanding of both frontend and backend development. He consistently exceeds my expectations, going above and beyond to ensure everything is perfect, all while maintaining excellent communication and thorough documentation. I couldn’t ask for a more reliable, talented, and dedicated developer. If I could, I’d hire him full-time!",
-          "imgurl": {
-              "hotspot": {
-                  "width": 0.897196261682243,
-                  "x": 0.514018691588785,
-                  "y": 0.5101779541672001,
-                  "height": 0.9796440916655998,
-                  "_type": "sanity.imageHotspot"
-              },
-              "_type": "image",
-              "asset": {
-                  "_ref": "image-f4967ff1f7aaffb7a1e485ccdb6c0516c5531c93-159x146-png",
-                  "_type": "reference"
-              },
-              "crop": {
-                  "bottom": 0,
-                  "_type": "sanity.imageCrop",
-                  "right": 0.03738317757009346,
-                  "top": 0.020355908334400204,
-                  "left": 0.06542056074766356
-              }
-          },
-          "_createdAt": "2024-09-20T18:27:55Z",
-          "_type": "testimonials",
-          "name": "Melvin",
-          "_rev": "eTv9hxwy1fwKSEtmAvk0pH",
-          "_id": "9df36947-0156-41b3-af95-5c61b3c0a614"
-      }
-  ])
+    client.fetch(brandsQuery).then((data) => {
+      setBrands(data);
+    });
   }, []);
 
   // get country name
