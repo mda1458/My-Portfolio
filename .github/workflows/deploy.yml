@@ -30,7 +30,7 @@ jobs:
 
           git clone git@github.com:mda1458/mda1458.github.io.git deploy
           rm -rf deploy/*
-          cp -r build/* deploy/
+          cp -r dist/* deploy/
           cd deploy
           git add .
           git commit -m "Deploy: $(date)"
